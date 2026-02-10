@@ -1,0 +1,16 @@
+name: dragonfly
+services:
+  dragonfly:
+    container_name: dragonfly
+    build:
+      context: ./dragonfly
+      args:
+        - PASSWORD=$PASSWORD
+    ports:
+      - "3333:22"
+    volumes:
+      - ./projects:/home/dragonfly/projects
+    environment:
+      - TZ="UTC"
+    tty: true
+    restart: unless-stopped
