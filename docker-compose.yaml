@@ -8,9 +8,10 @@ services:
         - PASSWORD=$PASSWORD
     ports:
       - "3333:22"
+      - "8545:8545"
     volumes:
       - ./projects:/home/dragonfly/projects
     environment:
-      - TZ="UTC"
+      - TZ="Etc/UTC"
     tty: true
     restart: unless-stopped

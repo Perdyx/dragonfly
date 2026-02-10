@@ -4,6 +4,8 @@
 FROM debian:stable
 
 EXPOSE 22
+EXPOSE 8545
+
 SHELL ["/bin/bash", "-lc"]
 ARG PASSWORD
 ENV DEBIAN_FRONTEND=noninteractive
