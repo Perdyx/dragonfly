@@ -48,9 +48,10 @@ RUN echo "export PATH=/home/dragonfly/.foundry/bin:$PATH" >> /home/dragonfly/.ba
 # Set up tmux
 COPY --chown=dragonfly:dragonfly ./tmux.conf /home/dragonfly/.tmux.conf
 
-# Install NVM and Node.js/NPM v24
+# Install NVM, Node.js/NPM v24, yarn
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash \
-    && source /home/dragonfly/.nvm/nvm.sh && nvm install 24
+    && source /home/dragonfly/.nvm/nvm.sh && nvm install 24 \
+    && npm install --global yarn
 
 # Install Foundry using the official script
 RUN curl -L https://foundry.paradigm.xyz | bash \
