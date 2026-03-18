@@ -61,4 +61,4 @@ RUN uv tool install slither-analyzer
 # Install Mythril
 RUN uv tool install mythril
 
-CMD bash -c "sudo chown -R dragonfly:dragonfly /home/dragonfly/projects && uv tool update-shell && sudo ssh-keygen -A && sudo /usr/sbin/sshd -D"
+CMD bash -c "uv tool update-shell && sudo ssh-keygen -A && sudo /usr/sbin/sshd -D"
