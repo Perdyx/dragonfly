@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     openssh-server \
     python3 \
+    python3-dev \
     sudo \
     tmux \
     vim \
@@ -39,9 +40,6 @@ RUN groupadd -g 1000 dragonfly \
 
 USER dragonfly
 
-# Create projects directory to be shared with the host for selective data persistence
-RUN mkdir -p /home/dragonfly/projects
-
 # Set up the PATH variable for the dragonfly user
 RUN echo "export PATH=/home/dragonfly/.foundry/bin:$PATH" >> /home/dragonfly/.bashrc
 
@@ -57,4 +55,10 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | b
 RUN curl -L https://foundry.paradigm.xyz | bash \
     && /home/dragonfly/.foundry/bin/foundryup
 
-CMD bash -c "sudo chown -R dragonfly:dragonfly /home/dragonfly/projects && sudo ssh-keygen -A && sudo /usr/sbin/sshd -D"
+# Install Slither
+RUN uv tool install slither-analyzer
+
+# Install Mythril
+RUN uv tool install mythril
+
+CMD bash -c "sudo chown -R dragonfly:dragonfly /home/dragonfly/projects && uv tool update-shell && sudo ssh-keygen -A && sudo /usr/sbin/sshd -D"
