@@ -16,18 +16,20 @@ Build the Docker image:
 
 ## Usage
 
-The following commands can be used to bring the stack up or down:
+The following commands can be used to start and stop the container:
 
 ```sh
 $ docker compose up -d
 $ docker compose down
 ```
 
-Actually using the container can be done in one of two ways. In both cases, use the password you set in the .env file to login.
+Accessing the container can be done in one of two ways. In both cases, use the password you set in the .env file to login. If you did not set a password, the default is `dragonfly`.
 
 ### SSH direct access
 
-SSH into the `dragonfly` user:
+***WARNING**: If you do not need remote access to the container, **turn this off**. This can be done by commenting out or removing the `- "3333:22"` line in `docker-compose.yaml`.*
+
+SSH is enabled by default to provide remote access in server-based deployments. To access the `dragonfly` user run the following from your terminal once the container is running:
 
 `$ ssh dragonfly@localhost -p 3333`
 

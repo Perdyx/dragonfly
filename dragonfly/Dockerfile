@@ -7,7 +7,7 @@ EXPOSE 22
 EXPOSE 8545
 
 SHELL ["/bin/bash", "-lc"]
-ARG PASSWORD
+ARG PASSWORD=dragonfly
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Update and install required apt packages and clean apt cache
