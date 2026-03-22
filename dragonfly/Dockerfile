@@ -7,7 +7,9 @@ EXPOSE 22
 EXPOSE 8545
 
 SHELL ["/bin/bash", "-c"]
-ARG PASSWORD=dragonfly
+ARG PASSWORD
+# This ensures the 'PASSWORD' from compose is available to the 'RUN' commands below
+ENV PASSWORD=${PASSWORD}
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Update and install required apt packages and clean apt cache

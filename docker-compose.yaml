@@ -5,7 +5,7 @@ services:
     build:
       context: ./dragonfly
       args:
-        - PASSWORD=$PASSWORD
+        - PASSWORD=dragonfly
       network: host
     # network_mode: host
     ports:
