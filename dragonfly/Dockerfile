@@ -1,12 +1,12 @@
 # Author: Per
 # Description: Blockchain development and smart contract auditing platform
-    
+
 FROM debian:stable
 
 EXPOSE 22
 EXPOSE 8545
 
-SHELL ["/bin/bash", "-lc"]
+SHELL ["/bin/bash", "-c"]
 ARG PASSWORD=dragonfly
 ENV DEBIAN_FRONTEND=noninteractive
 
