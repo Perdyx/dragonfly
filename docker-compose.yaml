@@ -11,8 +11,6 @@ services:
     ports:
       - "3333:22"
       - "8545:8545"
-    volumes:
-      - ./workspace:/home/dragonfly/workspace
     environment:
       - TZ="Etc/UTC"
     tty: true
