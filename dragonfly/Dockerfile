@@ -59,6 +59,7 @@ RUN curl -L https://foundry.paradigm.xyz | bash \
 
 # Install Slither
 RUN uv tool install slither-analyzer
+RUN uv tool install solc-select
 
 # Install Mythril
 RUN uv tool install mythril
