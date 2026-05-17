@@ -38,7 +38,8 @@ RUN groupadd -g 1000 dragonfly \
 USER dragonfly
 
 # Set up PATH for the dragonfly user
-RUN echo "export PATH=/home/dragonfly/.foundry/bin:$PATH" >> /home/dragonfly/.bashrc
+ENV PATH="/home/dragonfly/.local/bin:/home/dragonfly/.foundry/bin:${PATH}"
+RUN echo "export PATH=\"/home/dragonfly/.local/bin:/home/dragonfly/.foundry/bin:\$PATH\"" >> /home/dragonfly/.bashrc
 
 # Configure tmux
 COPY --chown=dragonfly:dragonfly ./tmux.conf /home/dragonfly/.tmux.conf
