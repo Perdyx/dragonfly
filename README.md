@@ -1,7 +1,5 @@
 # Dragonfly
 
-Dragonfly is a toolkit for Solidity blockchain development and smart contract auditing contained in a Docker image.
-
 ## Setup
 
 Create a `.env` file alongside `docker-compose.yaml` with the following contents:
