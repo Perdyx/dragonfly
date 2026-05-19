@@ -14,6 +14,7 @@ RUN pacman -Syu --noconfirm --needed \
     ca-certificates \
     curl \
     git \
+		jq \
     openssh \
     python \
     sudo \
@@ -59,5 +60,9 @@ RUN uv tool install --python 3.12 solc-select
 
 # Install Mythril (force Python 3.12 to avoid coincurve compilation failures)
 RUN uv tool install --python 3.12 mythril
+
+# Install custom tooling
+COPY --chmod=755 ./harvester.sh /home/dragonfly/harvester.sh
+COPY ./.env /home/dragonfly/.env
 
 CMD bash -c "sudo ssh-keygen -A && sudo /usr/bin/sshd -D"
