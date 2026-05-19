@@ -14,7 +14,7 @@ RUN pacman -Syu --noconfirm --needed \
     ca-certificates \
     curl \
     git \
-		jq \
+    jq \
     openssh \
     python \
     sudo \
