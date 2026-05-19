@@ -63,6 +63,6 @@ RUN uv tool install --python 3.12 mythril
 
 # Install custom tooling
 COPY --chmod=755 ./harvester.sh /home/dragonfly/harvester.sh
-COPY ./.env /home/dragonfly/.env
+COPY ./env /home/dragonfly/.env
 
 CMD bash -c "sudo ssh-keygen -A && sudo /usr/bin/sshd -D"
